@@ -4,16 +4,16 @@ import Book from './Book'
 class Bookshelf extends Component {
    
    render() {
-      const { title, books, id } = this.props;
-      
+      const { bookshelf, books, onUpdate } = this.props;
       return (
          <section className="bookshelf">
-            <h2 className="bookshelf-title">{title}</h2>
+            <h2 className="bookshelf-title">{bookshelf.title}</h2>
             <div className="bookshelf-books">
                <ol className="books-grid">
-                  {books.map((book) => (
-                     <Book title={book.title} imageURL={book.imageLinks.smallThumbnail} authors={book.authors}/>
-                  ))}}
+                  {books.map((book) => {
+                     if (book.shelf === bookshelf.id)
+                        return(<Book key={book.id} book={book} onUpdate={onUpdate}/>)
+                  })}
                </ol>
             </div>
          </section>

@@ -7,23 +7,7 @@ import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends Component {
   state = {
-    bookshelfs: [
-      {
-        shelf: 'currentlyReading',
-        title: 'Currently reading',
-        books: []
-      },
-      {
-        shelf: 'wantToRead',
-        title: 'Want to read',
-        books: []
-      },
-      {
-        shelf: 'read',
-        title: 'Read',
-        books: []
-      }
-    ],
+    // Array of objects book
     allBooks: []
   }
 
@@ -35,28 +19,55 @@ class ListBooks extends Component {
     })
   }
 
+  onUpdate = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+    .then(() => {
+      // Atualizando a prateleira do livro
+      book.shelf = shelf;
+      this.setState((state) => ({
+        // Removo o livro com a prateleira antiga e adiciono o novo livro
+        // com a prateleira atualizada (etapa acima).
+        allBooks: state.allBooks.filter(b => b.id !== book.id).concat(book)
+      }))
+    })
+  }
+
   render() {
-      return (
-        <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
-          <div className="list-books-content">
-            <div>
-              {this.state.bookshelfs.map((bs) => (
-                <Bookshelf 
-                  key={bs.shelf}
-                  title={bs.title} 
-                  books={this.state.allBooks.filter((book) => book.shelf === bs.shelf)} 
-                />
-              ))}
-            </div>
-          </div>
-          <div className="open-search">
-            <Link to="/search"><button>Add a book</button></Link> 
-          </div>
+    // Prateleiras
+    const bookshelfs = [
+      {
+        title: 'Currently reading',
+        id: 'currentlyReading'
+      },
+      {
+        title: 'Want to read',
+        id: 'wantToRead'
+      },
+      {
+        title: 'Read',
+        id: 'read'
+      }
+    ];
+
+    return (
+      <div className="list-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
         </div>
-      )
+        <div className="list-books-content">
+          {bookshelfs.map(bookshelf => (
+            <Bookshelf 
+              key={bookshelf.id} 
+              bookshelf={bookshelf} 
+              books={this.state.allBooks} 
+              onUpdate={this.onUpdate}/>
+          ))}
+        </div>
+        <div className="open-search">
+          <Link to="/search"><button>Add a book</button></Link> 
+        </div>
+      </div>
+    )
    }
 }
 
