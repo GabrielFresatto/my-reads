@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
@@ -25,11 +26,12 @@ class SearchBook extends Component {
 
   render() {
     const { query, newBooks, err } = this.state;
+    const { onUpdate } = this.props;
 
       return (
          <div className="search-books">
             <div className="search-books-bar">
-              <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+              <Link to="/" className="close-search"></Link>
               <div className="search-books-input-wrapper">
                 <input type="text" value={query} onChange={(evt) => this.searchBooks(evt)} placeholder="Search by title or author"/>
               </div>
@@ -38,9 +40,14 @@ class SearchBook extends Component {
               <ol className="books-grid">
                 {newBooks.length > 0 &&
                   newBooks.map((book) => (
-                    <Book book={book} onUpdate={''} key={book.id}/>
+                    <Book book={book} onUpdate={onUpdate} key={book.id}/>
                   ))
                 }
+
+                {newBooks.error &&
+                  <div>Nenhum livro encontrado</div>
+                }
+
               </ol>
             </div>
           </div>
