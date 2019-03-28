@@ -3,32 +3,32 @@
 1 verbose cli   'C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'start' ]
 2 info using npm@3.10.10
-3 info using node@v6.11.5
+3 info using node@v6.11.3
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle myreads-app@0.1.0~prestart: myreads-app@0.1.0
 6 silly lifecycle myreads-app@0.1.0~prestart: no script for prestart, continuing
 7 info lifecycle myreads-app@0.1.0~start: myreads-app@0.1.0
 8 verbose lifecycle myreads-app@0.1.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle myreads-app@0.1.0~start: PATH: C:\nvm\v6.11.5\node_modules\npm\bin\node-gyp-bin;C:\xampp\htdocs\React\my-reads\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\xampp\php;C:\composer;C:\nvm;C:\nodejs;C:\Program Files (x86)\OpenVPN\bin;C:\Users\Gabriel Fresatto\AppData\Local\Microsoft\WindowsApps;C:\Users\Gabriel Fresatto\AppData\Roaming\Composer\vendor\bin;C:\Users\Gabriel Fresatto\AppData\Local\Programs\Microsoft VS Code\bin;C:\nvm;C:\nodejs
-10 verbose lifecycle myreads-app@0.1.0~start: CWD: C:\xampp\htdocs\React\my-reads
+9 verbose lifecycle myreads-app@0.1.0~start: PATH: C:\nvm\v6.11.3\node_modules\npm\bin\node-gyp-bin;C:\xampp\htdocs\my-reads\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\nvm;C:\nodejs;C:\xampp\php;C:\composer;C:\Users\Gabriel Fresatto\AppData\Local\Microsoft\WindowsApps;C:\nvm;C:\nodejs;C:\Users\Gabriel Fresatto\AppData\Roaming\Composer\vendor\bin;C:\Users\Gabriel Fresatto\AppData\Local\Programs\Microsoft VS Code\bin
+10 verbose lifecycle myreads-app@0.1.0~start: CWD: C:\xampp\htdocs\my-reads
 11 silly lifecycle myreads-app@0.1.0~start: Args: [ '/d /s /c', 'react-scripts start' ]
 12 silly lifecycle myreads-app@0.1.0~start: Returned: code: 1  signal: null
 13 info lifecycle myreads-app@0.1.0~start: Failed to exec start script
 14 verbose stack Error: myreads-app@0.1.0 start: `react-scripts start`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (C:\nvm\v6.11.5\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (C:\nvm\v6.11.3\node_modules\npm\lib\utils\lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\nvm\v6.11.5\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (C:\nvm\v6.11.3\node_modules\npm\lib\utils\spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:920:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid myreads-app@0.1.0
-16 verbose cwd C:\xampp\htdocs\React\my-reads
+16 verbose cwd C:\xampp\htdocs\my-reads
 17 error Windows_NT 10.0.17134
 18 error argv "C:\\nodejs\\node.exe" "C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-19 error node v6.11.5
+19 error node v6.11.3
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error myreads-app@0.1.0 start: `react-scripts start`

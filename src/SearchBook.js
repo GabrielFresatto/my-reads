@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
@@ -6,8 +6,7 @@ import Book from './Book'
 class SearchBook extends Component {
   state = {
     query: '',
-    newBooks: [],
-    err: false
+    newBooks: []
   }
 
   searchBooks = (evt) => {
@@ -15,19 +14,21 @@ class SearchBook extends Component {
     this.setState({ query: query });
     BooksAPI.search(query).then(books => {
       if(books) {
-        console.log('Rolou a pesquisa', query);
-        this.setState({ newBooks:books, err: false})
+        this.setState({ newBooks:books })
       } else {
-        this.setState({ newBooks:[], err: true })
+        this.setState({ newBooks:[] })
       }
     })
   }
 
 
+
+  
   render() {
-    const { query, newBooks, err } = this.state;
+    const { query, newBooks } = this.state;
     const { onUpdate } = this.props;
 
+    
       return (
          <div className="search-books">
             <div className="search-books-bar">
@@ -40,7 +41,7 @@ class SearchBook extends Component {
               <ol className="books-grid">
                 {newBooks.length > 0 &&
                   newBooks.map((book) => (
-                    <Book book={book} onUpdate={onUpdate} key={book.id}/>
+                    <Book book={book} onUpdate={onUpdate} key={book.id} shelf=""/>
                   ))
                 }
 

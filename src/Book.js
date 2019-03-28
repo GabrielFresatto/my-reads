@@ -8,6 +8,7 @@ class Book extends Component {
    render() {
 
       const { book, onUpdate } = this.props;
+      
       return (
          <div className="book">
             <div className="book-top">
@@ -17,7 +18,7 @@ class Book extends Component {
                   backgroundImage: `url("${book.imageLinks && book.imageLinks.smallThumbnail}")` 
                }}></div>
                <div className="book-shelf-changer">
-               <select defaultValue="move" onChange={(evt) => onUpdate(book, evt.target.value)}>
+               <select defaultValue={book.shelf} onChange={(evt) => onUpdate(book, evt.target.value)}>
                   <option value="move" disabled>Move to...</option>
                   <option value="currentlyReading">Currently Reading</option>
                   <option value="wantToRead">Want to Read</option>

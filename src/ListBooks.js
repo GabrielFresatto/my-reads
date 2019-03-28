@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf'
-import * as BooksAPI from './BooksAPI'
-
-
 
 class ListBooks extends Component {
   render() {
-    const { allBooks, onUpdate } = this. props;
+    const { allBooks, onUpdate } = this.props;
     // Prateleiras
     const bookshelfs = [
       {
