@@ -8,8 +8,6 @@ class Book extends Component {
    render() {
 
       const { book, onUpdate, shelf } = this.props;
-      console.log(shelf);
-      
       return (
          <div className="book">
             <div className="book-top">

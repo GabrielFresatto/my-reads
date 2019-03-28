@@ -12,13 +12,15 @@ class SearchBook extends Component {
   searchBooks = (evt) => {
     let query = evt.target.value;
     this.setState({ query: query });
-    BooksAPI.search(query).then(books => {
-      if(books) {
-        this.setState({ newBooks:books })
-      } else {
-        this.setState({ newBooks:[] })
-      }
-    })
+    if(query) {
+      BooksAPI.search(query).then(books => {
+        if(books) {
+          this.setState({ newBooks:books })
+        } else {
+          this.setState({ newBooks:[] })
+        }
+      })
+    }
   }
 
 
@@ -27,12 +29,15 @@ class SearchBook extends Component {
   render() {
     const { query, newBooks } = this.state;
     const { onUpdate, myBooks } = this.props;
+    let books = [];
     
-    const books = newBooks.map((book) => {
-      const bookFound = myBooks.find(myBook => book.id === myBook.id);
-      book.shelf = (bookFound) ? bookFound.shelf : 'none'
-      return book;
-    })
+    if(newBooks.length > 0) {
+      books = newBooks.map((book) => {
+        const bookFound = myBooks.find(myBook => book.id === myBook.id);
+        book.shelf = (bookFound) ? bookFound.shelf : 'none'
+        return book;
+      })
+    }
 
         return (
          <div className="search-books">
