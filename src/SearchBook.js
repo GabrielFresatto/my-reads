@@ -26,10 +26,15 @@ class SearchBook extends Component {
   
   render() {
     const { query, newBooks } = this.state;
-    const { onUpdate } = this.props;
-
+    const { onUpdate, myBooks } = this.props;
     
-      return (
+    const books = newBooks.map((book) => {
+      const bookFound = myBooks.find(myBook => book.id === myBook.id);
+      book.shelf = (bookFound) ? bookFound.shelf : 'none'
+      return book;
+    })
+
+        return (
          <div className="search-books">
             <div className="search-books-bar">
               <Link to="/" className="close-search"></Link>
@@ -39,9 +44,9 @@ class SearchBook extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                {newBooks.length > 0 &&
-                  newBooks.map((book) => (
-                    <Book book={book} onUpdate={onUpdate} key={book.id} shelf=""/>
+                {books.length > 0 &&
+                  books.map((book) => (
+                    <Book book={book} onUpdate={onUpdate} key={book.id} shelf={book.shelf}/>
                   ))
                 }
 
