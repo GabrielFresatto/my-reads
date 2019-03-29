@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Book from './Book'
 
 class Bookshelf extends Component {
-   
+
    render() {
       const { bookshelf, books, onUpdate } = this.props;
       return (
@@ -12,7 +12,7 @@ class Bookshelf extends Component {
                <ol className="books-grid">
                   {books.map((book) => {
                      if (book.shelf === bookshelf.id)
-                        return(<Book key={book.id} book={book} onUpdate={onUpdate}/>)
+                        return(<Book key={book.id} book={book} shelf={book.shelf} onUpdate={onUpdate}/>)
                   })}
                </ol>
             </div>

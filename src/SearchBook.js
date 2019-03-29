@@ -14,23 +14,19 @@ class SearchBook extends Component {
     this.setState({ query: query });
     if(query) {
       BooksAPI.search(query).then(books => {
-        if(books) {
-          this.setState({ newBooks:books })
-        } else {
-          this.setState({ newBooks:[] })
-        }
-      })
+				this.setState({ newBooks: books ? books : [] })
+			})
     }
   }
 
 
 
-  
+
   render() {
     const { query, newBooks } = this.state;
     const { onUpdate, myBooks } = this.props;
     let books = [];
-    
+
     if(newBooks.length > 0) {
       books = newBooks.map((book) => {
         const bookFound = myBooks.find(myBook => book.id === myBook.id);
